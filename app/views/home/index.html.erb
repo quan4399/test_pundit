@@ -1,0 +1,4 @@
+<%= current_user.name %>(<%= current_user.role %>)
+<%= link_to "Logout", sign_out_path, method: 'delete'%>
+<hr>
+<%= link_to "Post", post_index_path %>

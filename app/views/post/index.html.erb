@@ -1,0 +1,17 @@
+<% if @posts.blank? %>
+  <p>Chua co post nao</p>
+<% else %>
+  <table>
+    <% @posts.each do |post| %>
+      <tr>
+         <td><%= link_to post.title, {:action => 'show', :id => post.id} -%></td>
+        <% if policy(post).destroy? %>
+          <td><%= link_to 'Destroy', post, :method =>:delete %></td>
+        <% end %>
+        <td><%= link_to 'Edit', { :action => 'edit', :id => post.id} %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<p><%= link_to "New post", {:action => 'new' }%></p>
